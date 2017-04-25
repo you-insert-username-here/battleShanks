@@ -1,0 +1,55 @@
+/*
+* New tab in processing sketch
+* Player class
+* this is the base player class, all players will be instantiations of this class
+* Handles:
+* Init, moving based off Input(), displaying the object
+*/
+class Player
+{
+  String playerTag;
+
+  PVector tankCurrentPos = new PVector(0, 0);
+  PVector tankTargetPos;
+  PVector tankCurrentVelocity;
+  PVector tankTargetVelocity;
+  
+  int hp;
+  int armour;
+  int cannonDamage;
+  int moveSpeed;
+  int size;
+  
+  Player(String initPlayerTag, int initX, int initY, int initSize, int initSpeed, int initHP, int initCannon, int initArmour)
+  {
+    playerTag = initPlayerTag;
+    
+    tankCurrentPos.x = initX;
+    tankCurrentPos.y = initY;
+    size = initSize;
+    moveSpeed = initSpeed;
+    
+    hp = initHP;
+    cannonDamage = initCannon;
+    armour = initArmour;
+  }
+  
+  void display()
+  {
+    rect(tankCurrentPos.x, tankCurrentPos.y, size, size);
+  }
+  
+  void move()
+  {
+    int middle = size >> 1;
+    tankCurrentPos.x = constrain(tankCurrentPos.x + moveSpeed * (int(input.isRight) - int(input.isLeft)), 0 , (width - middle * 2) - 1);
+    tankCurrentPos.y = constrain(tankCurrentPos.y + moveSpeed * (int(input.isDown)  - int(input.isUp)),   0 , (height - middle * 2) - 1);
+  }
+  
+  void update()
+  {
+    move();
+    display();
+  }
+}
+
