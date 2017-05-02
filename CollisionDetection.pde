@@ -16,7 +16,7 @@ void colDetection()
   textSize(10);
   text("Player 1 Position x: " + player[0].currentPosition.x + "\nPlayer 1 Position Y: " + player[0].currentPosition.y, 10, 10);
   text("Player 2 Position x: " + player[1].currentPosition.x + "\nPlayer 2 Position Y: " + player[1].currentPosition.y, 10, 50);
-  text("Hittness: " + isHit, 200, 10);
+  //text("Hittness: " + isHit, 200, 10);
 
   text("P1: Hit Right: " + player[0].hitRight, 10, 80);
   text("P1: Hit Left: " + player[0].hitLeft, 10, 90);
